@@ -2,7 +2,7 @@
 
 This tool is an end-to-end framework for generative molecular design and analysis using SMILES strings as the molecular representation. It integrates deep learning (Keras/TensorFlow) with chemoinformatics (RDKit via Python/reticulate) to both generate novel molecules and evaluate their physicochemical properties.
 
-1. Data Preprocessing
+**1. Data Preprocessing**
 
 Input: SMILES strings (Simplified Molecular Input Line Entry System).
 
@@ -16,8 +16,8 @@ Output is a dataset suitable for feeding into a neural sequence model.
 
 This ensures that variable-length SMILES strings are standardized for Transformer input.
 
-2. Transformer Model for Molecular Generation
-
+**2. Transformer Model for Molecular Generation
+**
 The core of the tool is a custom Transformer-based neural network implemented in Keras/TensorFlow:
 
 Input Layer: Encodes tokenized SMILES strings.
@@ -32,7 +32,7 @@ Output Layer: Predicts the probability distribution of the next character in the
 
 The model is trained in an auto-regressive manner, learning to reconstruct SMILES strings and eventually generate new valid molecules.
 
-3. Molecule Generation
+**3. Molecule Generation**
 
 Starting from a user-provided seed string (e.g., "C"), the trained model:
 
@@ -44,7 +44,7 @@ Concatenates predictions until the maximum length is reached or an end token is 
 
 The result is a novel SMILES string, potentially representing a new chemical structure.
 
-4. Integration with RDKit for Property Calculation
+**4. Integration with RDKit for Property Calculation**
 
 Through reticulate, the tool bridges R and Python to access RDKit:
 
@@ -66,7 +66,7 @@ Validates SMILES syntax and structure.
 
 This ensures that generated molecules are chemically meaningful and provides descriptors for further drug-likeness analysis.
 
-5. High-Level Pipeline: Generate & Analyze
+**5. High-Level Pipeline: Generate & Analyze**
 
 The function generate_and_analyze_smiles() integrates generation and analysis:
 
@@ -78,7 +78,7 @@ Return a structured list of molecules with both SMILES strings and property prof
 
 Results can then be summarized in human-readable format using print_molecule_properties().
 
-6. Applications
+**6. Applications**
 
 This tool can be applied in:
 
@@ -90,13 +90,13 @@ Chemoinformatics research: Exploring chemical space using deep learning.
 
 AI-driven molecule design: Integrating generative models with structure-based filtering.
 
-7. Customizability
-
+**7. Customizability
+**
 Adjustable hyperparameters: embedding_dim, num_heads, num_transformer_blocks, batch_size, epochs.
 
 Flexible generation: Different seeds, temperatures, and numbers of molecules.
 
 Extensible property calculation: Additional RDKit descriptors can be integrated.
 
-In summary:
+**In summary:**
 This tool is a Transformer-based generative chemistry platform that not only creates new molecular candidates as SMILES strings but also evaluates their drug-relevant physicochemical properties. It bridges deep learning (for creativity) with RDKit chemoinformatics (for validity and property profiling), making it a practical asset in AI-driven drug discovery workflows.
